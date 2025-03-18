@@ -1,0 +1,5 @@
+# Ignorowanie folderów generowanych automatycznie przez narzędzia IDE
+.idea/
+bin/
+target/
+*.iml
