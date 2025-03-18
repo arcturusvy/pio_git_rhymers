@@ -18,12 +18,12 @@ public class RhymersJUnitTest {
     @Test
     public void testCallCheck() {
         DefaultCountingOutRhymer rhymer = new DefaultCountingOutRhymer();
-        boolean result = rhymer.callCheck();
+        boolean result = rhymer.CallCheck();
         Assert.assertEquals(true, result);
 
         rhymer.CountIn(888);
 
-        result = rhymer.callCheck();
+        result = rhymer.CallCheck();
         Assert.assertEquals(false, result);
     }
 
@@ -32,12 +32,12 @@ public class RhymersJUnitTest {
         DefaultCountingOutRhymer rhymer = new DefaultCountingOutRhymer();
         final int STACK_CAPACITY = 12;
         for (int i = 0; i < STACK_CAPACITY; i++) {
-            boolean result = rhymer.isFull();
+            boolean result = rhymer.IsFull();
             Assert.assertEquals(false, result);
             rhymer.CountIn(888);
         }
 
-        boolean result = rhymer.isFull();
+        boolean result = rhymer.IsFull();
         Assert.assertEquals(true, result);
     }
 

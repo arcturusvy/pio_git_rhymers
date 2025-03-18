@@ -20,7 +20,7 @@ class RhymersDemo {
             rhymers[3].CountIn(rn.nextInt(20));
         
         for (int i = 0; i < rhymers.length; i++) {
-            while (!rhymers[i].callCheck())
+            while (!rhymers[i].CallCheck())
                 System.out.print(rhymers[i].CountOut() + "  ");
             System.out.println();
         }

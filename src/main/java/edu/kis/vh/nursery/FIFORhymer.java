@@ -6,12 +6,12 @@ public class FIFORhymer extends DefaultCountingOutRhymer {
 
     @Override
     public int CountOut() {
-        while (!callCheck())
+        while (!CallCheck())
             temp.CountIn(super.CountOut());
 
         int ret = temp.CountOut();
 
-        while (!temp.callCheck())
+        while (!temp.CallCheck())
             CountIn(temp.CountOut());
 
         return ret;
