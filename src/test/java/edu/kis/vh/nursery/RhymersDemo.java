@@ -13,15 +13,15 @@ class RhymersDemo {
         
         for (int i = 1; i < 15; i++)
             for (int j = 0; j < 3; j++)
-                rhymers[j].CountIn(i);
+                rhymers[j].сountIn(i);
         
         java.util.Random rn = new java.util.Random();
         for (int i = 1; i < 15; i++)
-            rhymers[3].CountIn(rn.nextInt(20));
+            rhymers[3].сountIn(rn.nextInt(20));
         
         for (int i = 0; i < rhymers.length; i++) {
             while (!rhymers[i].callCheck())
-                System.out.print(rhymers[i].CountOut() + "  ");
+                System.out.print(rhymers[i].сountOut() + "  ");
             System.out.println();
         }
         

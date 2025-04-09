@@ -5,14 +5,14 @@ public class FIFORhymer extends DefaultCountingOutRhymer {
     public DefaultCountingOutRhymer temp = new DefaultCountingOutRhymer();
 
     @Override
-    public int CountOut() {
+    public int сountOut() {
         while (!callCheck())
-            temp.CountIn(super.CountOut());
+            temp.сountIn(super.сountOut());
 
-        int ret = temp.CountOut();
+        int ret = temp.сountOut();
 
         while (!temp.callCheck())
-            CountIn(temp.CountOut());
+            сountIn(temp.сountOut());
 
         return ret;
     }
