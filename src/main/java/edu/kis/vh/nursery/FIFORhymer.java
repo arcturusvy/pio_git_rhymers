@@ -1,19 +1,33 @@
 package edu.kis.vh.nursery;
 
+/**
+ * Implementacja rhymera FIFO – pierwsze weszło, pierwsze wyszło.
+ */
 public class FIFORhymer extends DefaultCountingOutRhymer {
 
-    public DefaultCountingOutRhymer temp = new DefaultCountingOutRhymer();
+    /**
+     * Tymczasowy rhymer do przechowywania elementów w kolejności FIFO.
+     */
+    private final DefaultCountingOutRhymer temp = new DefaultCountingOutRhymer();
 
+    /**
+     * Zwraca pierwszy dodany element.
+     * Elementy są przechowywane w kolejności FIFO.
+     * @return najstarszy element
+     */
     @Override
-    public int CountOut() {
-        while (!CallCheck())
-            temp.CountIn(super.CountOut());
+    public int countOut() {
+        while (!callCheck()) {
+            temp.countIn(super.countOut());
+        }
 
-        int ret = temp.CountOut();
+        int ret = temp.countOut();
 
-        while (!temp.CallCheck())
-            CountIn(temp.CountOut());
+        while (!temp.callCheck()) {
+            countIn(temp.countOut());
+        }
 
         return ret;
     }
 }
+

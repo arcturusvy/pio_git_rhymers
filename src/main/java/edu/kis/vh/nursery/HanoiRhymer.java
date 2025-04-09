@@ -1,17 +1,32 @@
 package edu.kis.vh.nursery;
 
+/**
+ * Implementacja rhymera Hanoi – akceptuje tylko wartości mniejsze niż poprzednie.
+ * Odrzuca te, które są większe.
+ */
 public class HanoiRhymer extends DefaultCountingOutRhymer {
 
-    int totalRejected = 0;
+    private int totalRejected = 0;
 
-    public int ReportRejected() {
+    /**
+     * Zwraca liczbę odrzuconych wartości.
+     * @return liczba odrzuceń
+     */
+    public int reportRejected() {
         return totalRejected;
     }
 
-    public void CountIn(int in) {
-        if (!CallCheck() && in > peekaboo())
+    /**
+     * Dodaje wartość na stos, jeśli spełnia warunek mniejszości.
+     * Większe wartości są odrzucane.
+     * @param in wartość do dodania
+     */
+    @Override
+    public void countIn(int in) {
+        if (!callCheck() && in > peekaboo())
             totalRejected++;
         else
-            super.CountIn(in);
+            super.countIn(in);
     }
 }
+

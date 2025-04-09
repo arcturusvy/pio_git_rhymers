@@ -1,34 +1,74 @@
 package edu.kis.vh.nursery;
 
+/**
+ * Reprezentuje podstawowy stos liczb całkowitych o ograniczonym rozmiarze.
+ * Wykorzystywany jako domyślny rhymer.
+ */
 public class DefaultCountingOutRhymer {
 
-    private int[] NUMBERS = new int[12];
+    /**
+     * Stała reprezentująca pusty stos.
+     */
+    public static final int EMPTY = -1;
 
-    public int total = -1;
+    /**
+     * Maksymalna wielkość stosu.
+     */
+    public static final int SIZE = 12;
 
-    public void CountIn(int in) {
-        if (!IsFull())
-            NUMBERS[++total] = in;
+    private final int[] numbers = new int[SIZE];
+    private int total = EMPTY;
+
+    /**
+     * Zwraca aktualną liczbę elementów na stosie.
+     * @return indeks ostatniego elementu
+     */
+    public int getTotal() {
+        return total;
     }
 
-    public boolean CallCheck() {
-        return total == -1;
+    /**
+     * Dodaje wartość na stos, jeśli nie jest pełny.
+     * @param in wartość do dodania
+     */
+    public void countIn(int in) {
+        if (!isFull())
+            numbers[++total] = in;
     }
 
-    public boolean IsFull() {
-        return total == 11;
+    /**
+     * Sprawdza, czy stos jest pusty.
+     * @return true jeśli pusty, false w przeciwnym razie
+     */
+    public boolean callCheck() {
+        return total == EMPTY;
     }
 
-    protected int peekaboo() {
-        if (CallCheck())
-            return -1;
-        return NUMBERS[total];
+    /**
+     * Sprawdza, czy stos jest pełny.
+     * @return true jeśli pełny, false w przeciwnym razie
+     */
+    public boolean isFull() {
+        return total == SIZE - 1;
     }
 
-    public int CountOut() {
-        if (CallCheck())
-            return -1;
-        return NUMBERS[total--];
+    /**
+     * Podgląda ostatni element stosu bez jego usuwania.
+     * @return ostatnia wartość lub EMPTY, jeśli stos pusty
+     */
+    public int peekaboo() {
+        if (callCheck())
+            return EMPTY;
+        return numbers[total];
     }
 
+    /**
+     * Zdejmuje ostatnią wartość ze stosu.
+     * @return zdjęta wartość lub EMPTY, jeśli stos pusty
+     */
+    public int countOut() {
+        if (callCheck())
+            return EMPTY;
+        return numbers[total--];
+    }
 }
